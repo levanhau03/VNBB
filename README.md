@@ -10,14 +10,11 @@ Dựa trên phiên bản git chính thức đã biến mất, phiên bản này 
 - Sửa lỗi không thể gỡ cài đặt plugin
 - Đã khắc phục sự cố không thể mở được trang plugin
 ### Thay mới
-- 💄默认主题更新
-- 💥采用**utf8mb4**，支持emoji
-- jQuery更新到 3.5.1
-- 💥bootstrap更新到4.5.0
-- 部分css、js改用min版，提高页面速度
-- 移除IE hock
-- 移除插件中心链接
-- UMEditor 百度编辑器更新简约主题
+- 💄Cập nhật chủ đề mặc định
+- 💥Áp dụng **utf8mb4**, hỗ trợ emoji
+- jQuery được cập nhật lên 3.5.1
+- 💥Bootstrap được cập nhật lên 4.5.0
+- Một số css và js đã được thay đổi thành min để cải thiện tốc độ trang
 ### Thêm một số plugin
 - Đăng nhập/trả lời có thể xem bài viết
 - Thành viên mới nhất
@@ -35,10 +32,10 @@ Dựa trên phiên bản git chính thức đã biến mất, phiên bản này 
 插件和主题，直接上传到**plugin**目录中，后台插件中心开启。
 
 ### Rewrite
-后台设置开启伪静态，添加对应的伪静态规则。
+Bật giả tĩnh trong cài đặt nền và thêm quy tắc giả tĩnh tương ứng.
 
 <details>
-<summary>Apache伪静态:</summary>
+<summary>Apache giả tĩnh:</summary>
 
 ```
 <IfModule mod_rewrite.c>
@@ -56,7 +53,7 @@ RewriteRule ^(.*?)([^/]*)$ $1index.php?$2 [QSA,PT,L]
 </details>
 
 <details>
-<summary>Nginx伪静态:</summary>
+<summary>Nginx giả tĩnh:</summary>
 
 ```
 location ~* \.(htm)$ {
@@ -67,41 +64,12 @@ location ~* \.(htm)$ {
 ```
 </details>
 
-<details>
-<summary>Caddy伪静态（Caddyfile演示）：</summary>
 
-```
-www.yourdomain.com {
+## Tải xuống plugin
 
-# Set this path to your site's directory.
-root * /var/www
+Kho lưu trữ plugin tạm thời:[Trung tâm plugin](https://github.com/jiix/plugins)
 
-file_server
-
-# Or serve a PHP site through php-fpm:
-php_fastcgi localhost:9000
-}
-
-```
-</details>
-
-
-## 插件下载
-
-临时插件仓库：[插件主题中心](https://github.com/jiix/plugins)
-
-## 下一步
-
-- [x] 增加插件仓库，添加常用插件。
-- [x] 对php8进行适配。
-- [x] 将部分设置选项（比如开启伪静态设置）集成到后台，方便管理员使用。
-- [ ] 整理修复部分插件
-- [ ] 添加简约风、acg风格、绿色小清新风格主题。
-- [ ] 重启社区计划
-
-## 贡献者
-创始人：axiuno
-
-感谢：cnteacher@discuz、Discuz!、Team Artery、剑心@wooyun、右键森林、吴兆焕、杨永全、郑城、大象、燃烧的冰、⭐Star本项目的您。
+## Người đóng góp
+Người sáng lập: Mr.Hau
 
 ## Enjoy!
