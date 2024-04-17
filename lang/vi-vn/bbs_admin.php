@@ -52,7 +52,7 @@ return array(
 	'data_not_changed'=>'Không có thay đổi dữ liệu',
 	'admin_cant_be_deleted'=>'Không thể xóa trực tiếp admin, vui lòng chỉnh sửa trước cho nhóm người dùng phổ thông',
 	
-	// 首页
+
 	'admin_index'=>'Quản lý admin',
 	'site_stat_info'=>'Thống kê trang web',
 	'disk_free_space'=>'Dung lượng đĩa còn lại',
@@ -70,7 +70,7 @@ return array(
 	
 	'for_safe_input_password_again'=>'Để bảo mật, vui lòng nhập lại mật khẩu tài khoản của bạn',
 	
-	// 设置
+
 	'sitename'=>'Tên trang web',
 	'sitebrief'=>'Giới thiệu trang web',
 	'sitebrief_tips'=>'Lưu ý: Thẻ HTML được hỗ trợ, vui lòng sử dụng ngắt dòng &lt;br&gt;',
@@ -90,12 +90,12 @@ return array(
 	'pagesize'=>'Chủ đề mỗi trang',
 	'postlist_pagesize'=>'Câu trả lời mỗi trang',
 
-	// 版块
+
 	'forum_list'=>'Danh sách diễn đàn',
 	'forum_id'=>'ID',
 	'forum_icon'=>'Icon',
 	'forum_name'=>'Tên',
-	'forum_rank'=>'Thứ hạng',
+	'forum_rank'=>'Hạng',
 	'forum_edit'=>'Sửa',
 	'forum_delete'=>'Xóa',
 	'forum_brief'=>'Brief',
@@ -115,7 +115,7 @@ return array(
 	'forum_please_delete_sub_forum'=>'Vui lòng xóa diễn đàn con.',
 	'forum_delete_successfully'=>'Đã xóa thành công.',
 	
-	// 主题
+
 	'thread_queue_not_exists'=>'Hàng đợi không tồn tại',
 	'search_condition'=>'Tiêu chí tìm kiếm',
 	'start_date'=>'Thời gian bắt đầu',
@@ -128,7 +128,7 @@ return array(
 	'thread_userip'=>'Post IP',
 	'thread_search_result'=>'Kết quả: {n} mục',
 	
-	// 用户
+
 	'please_check_delete_user'=>'Vui lòng kiểm tra người dùng bạn muốn xóa',
 	'user_delete_confirm'=>'Bạn có chắc chắn muốn xóa người dùng này không?',
 	'user_admin_cant_be_deleted'=>'Không được phép xóa người dùng quản trị viên, nếu bạn thực sự muốn xóa họ, vui lòng điều chỉnh nhóm người dùng trước!',
@@ -136,7 +136,7 @@ return array(
 	'user_privileges'=>'Quyền người dùng',
 	'author'=>'Tác giả',
 	
-	// 用户组
+
 	'group_list'=>'Danh sách nhóm người dùng',
 	'group_edit'=>'Sửa nhóm người dùng',
 	'group_id'=>'Group ID',
