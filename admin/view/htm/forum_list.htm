@@ -11,21 +11,21 @@
 						<table class="table" style="min-width: 800px">
 							<thead>
 								<tr align="center">
-									<th width="80"><?php echo lang('forum_id');?></th>
-									<th width="60" align="left"><?php echo lang('forum_icon');?></th>
-									<th width="130"></th>
+									<th width="60"><?php echo lang('forum_id');?></th>
+									<th width="60"><?php echo lang('forum_icon');?></th>
+									<th width="180"></th>
 									<th><?php echo lang('forum_name');?></th>
-									<th width="100"><?php echo lang('forum_rank');?></th>
-									<th width="100" class="text-center"><?php echo lang('forum_edit');?></th>
-									<th width="100" class="text-center"><?php echo lang('forum_delete');?></th>
+									<th width="60"><?php echo lang('forum_rank');?></th>
+									<th width="60" class="text-center"><?php echo lang('forum_edit');?></th>
+									<th width="60" class="text-center"><?php echo lang('forum_delete');?></th>
 								</tr>
 							<thead>
 							<tbody>
 								<?php foreach($forumlist as $_fid=>$_forum) { ?>
 								<tr align="center" rowid="<?php echo $_fid; ?>">
 									<td class="50"><input type="text" class="form-control" name="fid[<?php echo $_fid;?>]" value="<?php echo $_forum['fid']; ?>"  placeholder="<?php echo lang('forum_id');?>" /></td>
-									<td align="left">
-										<img src="../<?php echo $_forum['icon_url']; ?>" class="forum" width="48" id="img_<?php echo $_fid;?>" />
+									<td>
+										<img src="../<?php echo $_forum['icon_url']; ?>" class="forum" width="32" id="img_<?php echo $_fid;?>" />
 									</td>
 									<td>
 										<input type="file" multiple="multiple" accept=".jpg,.jpeg,.png,.gif,.bmp" class="form-control" name="icon[<?php echo $_fid;?>]" value="" data-assoc="img_<?php echo $_fid;?>" placeholder="<?php echo lang('forum_icon');?>" />
