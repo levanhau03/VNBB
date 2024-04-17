@@ -18,27 +18,16 @@ Dựa trên phiên bản git chính thức đã biến mất, phiên bản này 
 - 移除IE hock
 - 移除插件中心链接
 - UMEditor 百度编辑器更新简约主题
-### 增加部分插件
-- 回复可见/登录可见
-- 最新会员
-- 帖子收藏
-- 帖子点赞
-- 简约单栏模板
-- 大白·TinyMCE编辑器
-- 大白·简约风格
-- 消息系统
-- 回帖排序
-### 移除部分原始插件
-* 在线手册（xn_manual）
-* 返回顶部（z_top），后续会集成到主题中
-* Xiuno BBS 测试插件 (xn_test)
-* 屏幕阅读 ( xn_screen_reader)
-* 幸运踩楼 (xn_lucky_post)
-* 版块三级分类 (xn_forum_level_3)
-* 我的第一个 Xiuno BBS 插件 (my_hello)
-* 移除官方自带三款主题(xn_theme_red、 xn_theme_paopao、xn_theme_dark)，后续会添加简约风、acg主题、绿色小清新
+### Thêm một số plugin
+- Đăng nhập/trả lời có thể xem bài viết
+- Thành viên mới nhất
+- Bộ sưu tập bài mới
+- Trình chỉnh sửa TinyMCE
+- Phong cách đơn giản
+- Hệ thống nhắn tin
+- Sắp xếp trả lời
 
-## 截屏
+## Screenshot
 ![image](https://raw.githubusercontent.com/jiix/xiunobbs/master/screenshot.png)
 
 ## 使用
