@@ -1,0 +1,20 @@
+	<?php $manage_config = setting_get('admin_manage_setting');?>
+
+  <?php
+  $d_lg_none = '';
+  $h_nav_visible = 'd-lg-none';
+  $body_container = 'container-fluid';
+  if (isset($manage_config['nav_position']) && $manage_config['nav_position'] == 2) { ?>
+    <style>
+    @media (min-width: 768px){
+      body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .content-wrapper, body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-footer, body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-header {
+          transition: margin-left .3s ease-in-out;
+          margin-left: 0px;
+      }
+      }
+      </style>
+  <?php
+      $d_lg_none = 'd-lg-none';
+      $h_nav_visible = '';
+      $body_container = 'container';
+  }?>

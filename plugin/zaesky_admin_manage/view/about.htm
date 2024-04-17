@@ -1,0 +1,31 @@
+<?php include _include(ADMIN_PATH.'view/htm/header.inc.htm');?>
+
+<div class="text-center my-5">
+  <img src="/plugin/zaesky_admin_manage/static/img/logo.png" class="avatar-5" alt="Official_logo">
+  <div class="text-center mt-4">
+    <h1 class="display-4">VNBB</h1>
+    <p class="lead"><?php echo lang('admin_about_version');?>:<?php echo $conf['version'];?><span class="mx-3">|</span><?php echo lang('admin_manage_name');?>:<?php echo lang('xiuno_manage_version');?></p>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <h5><?php echo lang('dev_team_info');?></h5>
+  </div>
+  <div class="card-body">
+    <div>Official Site: <a href="http://www.xiuno.com" target="_blank">http://vnbb.x10.mx/</a></div>
+    <div>
+      <?php echo lang('admin_tec_support');?>:
+      <a href="https://adminlte.io/" target="_blank">AdminLTE</a>
+    </div>
+  </div>
+</div>
+
+<?php include _include(ADMIN_PATH.'view/htm/footer.inc.htm');?>
+
+<script>
+
+$('#nav li.nav-item-about').addClass('active');
+
+</script>

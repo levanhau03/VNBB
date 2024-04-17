@@ -1,0 +1,10 @@
+{
+    "name": "TinyMCE",
+    "brief": "TinyMCE là trình soạn thảo văn bản phong phú WYSIWYG dễ sử dụng và mạnh mẽ, cốt lõi là TinyMCE v6.0.3",
+    "version": "1.0",
+    "bbs_version": "4.0.4",
+    "installed": 0,
+    "enable": 0,
+    "hooks_rank": [],
+    "dependencies": []
+}

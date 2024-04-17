@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+# Apache 2.4
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteRule ^(.*?)([^/]*)$ $1index.php?$2 [QSA,PT,L]
+
+Options -Indexes
+</IfModule>

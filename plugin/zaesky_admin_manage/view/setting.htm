@@ -1,0 +1,58 @@
+<?php include _include(ADMIN_PATH.'view/htm/header.inc.htm'); ?>
+
+<div class="row">
+	<div class="col-sm-12">
+		
+		<div class="card">
+			<div class="card-body">
+				<form action="<?php echo url('plugin-setting-zaesky_admin_manage');?>" method="post" id="formcreate">
+					<h4 class="card-title mb-3"><?php echo $header['title']; ?></h4>
+					
+					<hr class="mb-4" />
+					<div class="form-group row">
+						<label class="col-md-2 form-control-label text-md-right pr-0" for="nav_position">
+							<b class="text-dark"><?php echo lang('admin_setting_config_position'); ?>:</b>
+						</label>
+						<div class="col-md-8">
+							<div class="open-thread" id="nav_position">
+							
+								<?php if (isset($manage_config['nav_position']) && $manage_config['nav_position'] == 1) { ?>
+									<label class="custom-input custom-radio mr-3">
+										<input type="radio" name="nav_position" value="1" checked="checked"> <?php echo lang('admin_setting_position_left'); ?>
+									</label>
+									<label class="custom-input custom-radio mr-3">
+										<input type="radio" name="nav_position" value="2"> <?php echo lang('admin_setting_position_top'); ?>
+									</label>
+								<?php } else { ?>
+									<label class="custom-input custom-radio mr-3">
+										<input type="radio" name="nav_position" value="1"> <?php echo lang('admin_setting_position_left'); ?>
+									</label>
+									<label class="custom-input custom-radio mr-3">
+										<input type="radio" name="nav_position" value="2" checked="checked"> <?php echo lang('admin_setting_position_top'); ?>
+									</label>
+								<?php } ?>
+							</div>
+						</div>
+					</div>	
+          <div class="form-group row mb-3">
+						<label class="col-md-2 form-control-label"></label>
+						<div class="col-md-2">
+							<button type="submit" class="btn btn-primary btn-block mr-2 mb-2" id="submit"><?php echo lang('save'); ?></button>
+						</div>
+						<div class="col-md-2">
+							<a role="button" class="btn btn-secondary btn-block mb-2" href="javascript:history.back();"><?php echo lang('back'); ?></a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php
+include _include(ADMIN_PATH.'view/htm/footer.inc.htm');
+?>
+
+<script>
+$('#nav li.nav-item-plugin').addClass('active');
+</script>

@@ -1,0 +1,10 @@
+{
+    "name": "Admin manage",
+    "brief": "Admin·manage 一 Khung quản lý nền chương trình",
+    "version": "1.0.1",
+    "bbs_version": "1.0",
+    "installed": 0,
+    "enable": 0,
+    "hooks_rank": [],
+    "dependencies": []
+}

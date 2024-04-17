@@ -1,0 +1,118 @@
+<?php !isset($user['avatar_url']) AND $user['avatar_url'] = ''; ?>
+<!--{hook header_nav_start.htm}-->
+<!-- 导航栏 -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    
+    <!-- 侧边栏按钮和标题 开启顶部导航栏不显示 反之 -->
+    <ul class="navbar-nav <?php echo $d_lg_none;?>">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <!--{hook admin_header_nav_logo_after.htm}-->
+      <li class="nav-item">
+        <a href="#" class="nav-link header-title" >
+					<?php if($header['title']) { ?>
+					<span><?php echo $header['title'];?></span>
+					<?php } ?>
+				</a>
+      </li>
+    </ul>
+
+    <!-- 顶部导航栏logo和菜单选项 开启侧边导航栏不显示 反之 -->
+    <ul class="navbar-nav hidden-sm hidden-md <?php echo $h_nav_visible;?>" id="nav">
+
+      <!--LOGO -->
+      <li class="nav-item">
+			<a class=" nav-link" href="<?php echo $header['mobile_link'];?>">
+				<img src="../view/img/logo.png" class="logo-2">
+			</a>
+    </li>
+      <!--{hook admin_header_nav_logo_after.htm}-->
+     
+
+      <!--{hook admin_header_nav_start.htm}-->
+						
+					<li class="nav-item home">
+						<a class="nav-link" href="./"><i class="icon-home"></i> <?php echo lang('admin_index_page');?></a>
+					</li>
+					<?php foreach ($menu as $k=>$v) { ?>
+					<li class="nav-item nav-item-<?php echo $k;?>">
+						<a class="nav-link" href="<?php echo $v['url'];?>"><i class="<?php echo $v['icon'];?>"></i> <?php echo $v['text'];?></a>
+					</li>
+					<?php  } ?>
+					<!--{hook admin_header_nav_end.htm}-->
+          <li class="nav-item nav-item-about" >
+            <a href="<?php echo url('about');?>" class="nav-link">
+              <i class="nav-icon fas fa-exclamation-circle"></i> <?php echo lang('admin_header_about');?>
+            </a>
+          </li>
+    </ul>
+
+    <!-- 顶部导航栏右侧用户 -->
+    <ul class="navbar-nav ml-auto ">
+      <!--{hook admin_header_nav_user_start.htm}-->
+      <li class="nav-item">
+        <a class="nav-link mt-1" href="../<?php echo url('my');?>">
+          <img class="avatar-1" src="<?php echo (strpos($user['avatar_url'], '//') === FALSE ? '../' : '').$user['avatar_url'];?>">
+        </a>
+      </li>
+      <!--{hook admin_header_nav_user_end.htm}-->
+			<li class="nav-item" data-toggle="tooltip" data-placement="top" title="<?php echo lang('front_index_page');?>">
+        <a class="nav-link" href="../"  role="button">
+          <i class="fas fa-home"></i>
+        </a>
+      </li>
+			<li class="nav-item" data-toggle="tooltip" data-placement="top" title="<?php echo lang('logout');?>">
+        <a class="nav-link" href="<?php echo url('index-logout');?>" role="button">
+          <i class="fas fa-sign-out-alt"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 左侧导航栏菜单 开始顶部导航栏不显示 -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed <?php echo $d_lg_none;?>">
+    <!-- Brand Logo -->
+    <a href="<?php echo $header['mobile_link'];?>" class="brand-link">
+      <img src="../view/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light"><?php echo lang('admin_page');?></span>
+    </a>
+
+    <div class="sidebar position-fixed" style="width: inherit;">
+
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" id="nav" data-widget="treeview" role="menu" data-accordion="false">
+          <!--{hook admin_header_nav_start.htm}-->
+          <li class="nav-item home">
+            <a href="./" class="nav-link">
+              <i class="nav-icon icon-home"></i>
+              <p>
+                <?php echo lang('admin_index_page');?>
+              </p>
+            </a>
+          </li>
+
+					<?php foreach ($menu as $k=>$v) { ?>
+						<li class="nav-item nav-item-<?php echo $k;?>">
+							<a class="nav-link" href="<?php echo $v['url'];?>"><i class="nav-icon <?php echo $v['icon'];?>"></i>
+								<p>
+								<?php echo $v['text'];?>
+							</p>
+							</a>
+						</li>
+						<?php  } ?>
+            <!--{hook admin_header_nav_end.htm}-->
+            <li class="nav-item nav-item-about" >
+              <a href="<?php echo url('about');?>" class="nav-link">
+                <i class="nav-icon fas fa-exclamation-circle"></i>
+                <p>
+                  <?php echo lang('admin_header_about');?>
+                </p>
+              </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+  
+	<!--{hook header_nav_footer.htm}-->

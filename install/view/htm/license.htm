@@ -1,0 +1,19 @@
+<?php include INSTALL_PATH.'view/htm/header.inc.htm';?>
+
+<div class="card">
+	<div class="card-body">
+		<h3 class="card-title mt-3"><?php echo lang('license_title');?></h3>
+		<hr />
+		<pre style="white-space: pre-wrap; word-wrap: break-word;"><?php echo lang('license_content');?>
+		<br>
+		DEMO
+		
+<?php echo lang('license_date');?>
+		</pre>
+	
+		<div class="text-center m-3"><button class="btn btn-primary" onClick="window.location='index.php?action=env'"><?php echo lang('agree_license_to_continue');?></button></div>
+	</div>
+</div>
+
+
+<?php include INSTALL_PATH.'view/htm/footer.inc.htm';?>

@@ -1,0 +1,29 @@
+<script type="text/javascript">
+	$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	});
+	$(function () {
+	  $('[data-toggle="popover"]').popover()
+	})
+	
+	const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+})
+</script>
+<script>
+  //回到顶部
+  var jscroll_to_top = $('#scroll_to_top');
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 0) {
+       jscroll_to_top.fadeIn('slow');
+    } else {
+      jscroll_to_top.fadeOut('slow');
+    }
+  });
+  jscroll_to_top.on('click', function() {
+    $('html,body').animate({scrollTop: 0}, 'slow');
+  });
+  </script>

@@ -1,0 +1,67 @@
+<?php include _include(ADMIN_PATH.'view/htm/header.inc.htm');?>
+
+<!--{hook admin_index_login_start.htm}-->
+<div class="lockscreen-wrapper">
+  <div class="lockscreen-logo">
+    <?php echo lang('admin_login');?>
+  </div>
+  <div class="lockscreen-name text-center"><?php echo isset($user['username']) ? $user['username'] : '';?>，<?php echo lang('admin_login_hello');?></div>
+
+  <div class="lockscreen-item">
+    <div class="lockscreen-image">
+      <img src="<?php echo (strpos($user['avatar_url'], '//') === FALSE ? '../' : '').$user['avatar_url'];?>" alt="User Image">
+    </div>
+
+    <form class="lockscreen-credentials" action="<?php echo url('index-login');?>" method="post" id="form">
+      <div class="input-group">
+        <input type="password" class="form-control" placeholder="password" id="password" name="password">
+
+        <div class="input-group-append">
+          <button type="submit" class="btn" id="submit" data-loading-text="<?php echo lang('submiting');?>...">
+            <?php echo lang('login');?>
+          </button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+  <div class="help-block text-center">
+    <?php echo lang('for_safe_input_password_again');?>
+  </div>
+</div>
+
+<!--{hook admin_index_login_end.htm}-->
+
+<?php include _include(ADMIN_PATH.'view/htm/footer.inc.htm');?>
+<script src="../view/js/md5.js"></script>
+
+<script>
+var jform = $('#form');
+var jsubmit = $('#submit');
+var jemail = $('#email');
+var jpassword = $('#password').focus();
+jform.on('submit', function() {
+	jform.reset();
+	jsubmit.button('loading');
+	var postdata = jform.serializeObject();
+	postdata.password = $.md5(postdata.password);
+	$.xpost(jform.attr('action'), postdata, function(code, message) {
+		if(code == 0) {
+			jsubmit.button(message).delay(1000).location('./');
+		} else if(code == 'email') {
+			jemail.alert(message).focus();
+			jsubmit.button('reset');
+		} else if(code == 'password') {
+			jpassword.alert(message).focus();
+			jsubmit.button('reset');
+		} else {
+			alert(message);
+			jsubmit.button('reset');
+		}
+	});
+	return false;
+});
+
+</script>
+
+<!--{hook admin_index_login_js.htm}-->

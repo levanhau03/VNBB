@@ -1,0 +1,279 @@
+<?php include _include(ADMIN_PATH.'view/htm/header.inc.htm');?>
+
+<!--{hook admin_index_start.htm}-->
+
+<div class="row line-height-3">
+	<div class="col-12">
+		<!--{hook admin_index_site_stat_before.htm}-->
+		<div class="row">
+			<div class="col-lg-3 col-6">
+				<div class="small-box bg-info shadow-none">
+					<div class="inner">
+						<h3><?php echo $stat['threads']; ?></h3>
+
+						<p><?php echo lang('threads');?>
+							<?php 
+							if($new_threads_num > 0){?>
+								<?php echo lang('admin_today_add');?><?php echo $new_threads_num;?>
+							<?php }?>
+						</p>
+					</div>
+					<div class="icon">
+						<i class="fas fa-comment-alt"></i>
+					</div>
+					<a href="<?php echo url('thread-list');?>" class="small-box-footer">
+						<?php echo lang('admin_index_more_info');?> <i class="fas fa-arrow-circle-right"></i>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-6">
+				<div class="small-box bg-success shadow-none">
+					<div class="inner">
+						<h3><?php echo $stat['posts']; ?></h3>
+
+						<p><?php echo lang('posts');?>
+							<?php
+							if($new_posts_num > 0){?>
+								<?php echo lang('admin_today_add');?><?php echo $new_posts_num;?>
+							<?php }?>
+						</p>
+					</div>
+					<div class="icon">
+						<i class="fas fa-comments"></i>
+					</div>
+					<a href="<?php echo url('thread-list');?>" class="small-box-footer">
+						<?php echo lang('admin_index_more_info');?> <i class="fas fa-arrow-circle-right"></i>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-6">
+				<div class="small-box bg-warning shadow-none">
+					<div class="inner">
+						<h3><?php echo $stat['users']; ?></h3>
+
+						<p><?php echo lang('users');?>
+						<?php
+						if($new_menber_num > 0){?>
+							<?php echo lang('admin_today_add');?><?php echo $new_menber_num;?>
+						<?php }?>
+						</p>
+					</div>
+					<div class="icon">
+						<i class="fas fa-user-friends"></i>
+					</div>
+					<a href="<?php echo url('user-list');?>" class="small-box-footer">
+						<?php echo lang('admin_index_more_info');?> <i class="fas fa-arrow-circle-right"></i>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-6">
+				<div class="small-box bg-danger shadow-none">
+					<div class="inner">
+						<h3><?php echo $stat['disk_free_space']; ?></h3>
+
+						<p><?php echo lang('disk_free_space');?></p>
+					</div>
+					<div class="icon">
+						<i class="fas fa-chart-pie"></i>
+					</div>
+					<a href="<?php echo url('other');?>" class="small-box-footer">
+						<?php echo lang('admin_index_more_info');?> <i class="fas fa-arrow-circle-right"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-6">
+				<div class="info-box shadow-none">
+					<span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+
+					<div class="info-box-content">
+						<span class="info-box-text"><?php echo lang('onlines');?></span>
+						<span class="info-box-number"><?php echo $runtime['onlines']; ?></span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-6 col-6">
+				<div class="info-box shadow-none">
+					<span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+
+					<div class="info-box-content">
+						<span class="info-box-text"><?php echo lang('attachs');?></span>
+						<span class="info-box-number"><?php echo $stat['attachs']; ?></span>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+<!--{hook admin_index_team_before.htm}-->
+		<div class="row">
+			<div class="col-12 col-lg-6">
+		<div class="card card-info">
+			<div class="card-header">
+				<span class="card-title"><?php echo lang('user_chart');?><span class="badge badge-warning ml-2"><?php echo lang('not_include_admin');?></span></span>
+				
+				<div class="card-tools float-right">
+					<button type="button" class="btn btn-tool" data-card-widget="collapse">
+						<i class="fas fa-minus"></i>
+					</button>
+					<button type="button" class="btn btn-tool" data-card-widget="remove">
+						<i class="fas fa-times"></i>
+					</button>
+				</div>
+			</div>
+			<div class="card-body">
+				<canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+			</div>
+			
+		</div>
+	</div>
+
+		<div class="col-12 col-lg-6">
+			<div class="card">
+				<div class="card-header">
+					<span class="card-title"><?php echo lang('admin_manage_group');?></span>
+					<div class="card-tools float-right">
+						<button type="button" class="btn btn-tool" data-card-widget="collapse">
+							<i class="fas fa-minus"></i>
+						</button>
+						<button type="button" class="btn btn-tool" data-card-widget="remove">
+							<i class="fas fa-times"></i>
+						</button>
+					</div>
+				</div>
+				<div class="card-body p-0">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th style="width: 10px"><?php echo lang('admin_group_id');?></th>
+								<th><?php echo lang('admin_group_name');?></th>
+								<th style="width: 200px;"><?php echo lang('admin_group_users');?></th>
+								<th class="text-center"><?php echo lang('admin_group_num');?></th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach($grouplist as $_gid=>$_group) {
+								if($_group['gid'] <= 7 && $_group['gid'] > 0){
+									$admin_group_num = db_count('user',array('gid'=>$_group['gid']));
+									$admin_group_user = db_find('user',array('gid'=>$_group['gid']),array('uid'=>-1));
+									switch($_group['gid']){
+										case 1: $badge_color = 'badge-danger';break;
+										case 2: $badge_color = 'badge-warning';break;
+										case 4: $badge_color = 'badge-primary';break;
+										case 5: $badge_color = 'badge-success';break;
+										case 6: $badge_color = 'badge-info';break;
+										case 7: $badge_color = 'badge-dark';break;
+										default:$badge_color = 'badge-secondary';break;
+									}
+									
+								?>
+							<tr>
+								<td><?php echo $_group['gid']; ?></td>
+								<td> <a href="<?php echo url('user-list-gid-'.$_group['gid'].'-1');?>"><?php echo $_group['name']; ?></a></td>
+								<td>
+									<?php
+									$user_num = 1;
+									foreach($admin_group_user as $user){
+										if($user_num++ > 6) break;
+										$user_avatarimg = '../view/img/avatar.png';
+										$user['avatar']!=0 && $user_avatarimg = '../'.$conf['upload_url'].'avatar/000/'.$user['uid'].'.png?'.$user['avatar']; ?>
+									<a href="<?php echo url('user-update-'.$user['uid'].'');?>" data-toggle="tooltip" data-placement="top" title="<?php echo $user['username'];?>"><img src="<?php echo $user_avatarimg; ?>" class="avatar-2"></a>
+								<?php }	?>
+								</td >
+								<td class="text-center"><span class="badge <?php echo $badge_color;?>"><?php echo $admin_group_num;?></span></td>
+							</tr>
+							<?php }} ?>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+	</div>
+	</div>
+		<!--{hook admin_index_server_info_before.htm}-->
+		<div class="card card-Lightblue">
+			<div class="card-header">
+				<span class="card-title"><?php echo lang('server_info');?> <a href="<?php echo url('index-phpinfo');?>" class="badge badge-warning"><small>[PHPINFO]</small></a></span>
+				
+				<div class="card-tools float-right">
+					<button type="button" class="btn btn-tool" data-card-widget="collapse">
+						<i class="fas fa-minus"></i>
+					</button>
+					<button type="button" class="btn btn-tool" data-card-widget="remove">
+						<i class="fas fa-times"></i>
+					</button>
+				</div>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-6"><span class="text-muted"><?php echo lang('os');?>：</span><?php echo PHP_OS; ?></div>
+					<div class="col-md-6"><span class="text-muted">Web Server：</span><?php echo $info['SERVER_SOFTWARE']; ?></div>
+					<div class="col-md-6"><span class="text-muted">PHP：</span><?php echo PHP_VERSION; ?></div>
+					
+					<div class="col-md-6"><span class="text-muted"><?php echo lang('database');?>：</span><?php echo $conf['db']['type']; ?><small> (<?php echo $info['dbversion']; ?>)</small></div>
+					<div class="col-md-6"><span class="text-muted"><?php echo lang('post_max_size');?>：</span><?php echo $info['post_max_size']; ?></div>
+					<div class="col-md-6"><span class="text-muted"><?php echo lang('upload_max_filesize');?>：</span><?php echo $info['upload_max_filesize']; ?></div>
+					
+					<div class="col-md-6"><span class="text-muted"><?php echo lang('allow_url_fopen');?>：</span><?php echo $info['allow_url_fopen']; ?></div>
+					<div class="col-md-6"><span class="text-muted"><?php echo lang('safe_mode');?>：</span><?php echo $info['safe_mode']; ?></div>
+					<div class="col-md-6"><span class="text-muted"><?php echo lang('max_execution_time');?>：</span><?php echo $info['max_execution_time']; ?></div>
+					
+					<div class="col-md-6"><span class="text-muted"><?php echo lang('memory_limit');?>：</span><?php echo $info['memory_limit']; ?></div>
+					<div class="col-md-6"><span class="text-muted"><?php echo lang('client_ip');?>：</span><?php echo $ip; ?></div>
+					<div class="col-md-6"><span class="text-muted"><?php echo lang('server_ip');?>：</span><?php echo _SERVER('SERVER_ADDR'); ?></div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--{hook admin_index_end.htm}-->
+
+<?php include _include(ADMIN_PATH.'view/htm/footer.inc.htm');?>
+
+<script>
+$('#nav li.home').addClass('active');
+
+//- DONUT CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+    var donutData        = {
+      labels: [
+			<?php foreach($grouplist as $_gid=>$_group) {
+				if($_group['gid'] > 100){
+				?>
+          '<?php echo $_group['name']; ?>',
+					<?php }} ?>
+      ],
+      datasets: [
+        {
+          data: [
+					<?php
+				foreach($grouplist as $_gid=>$_group){
+					if($_group['gid'] > 100){
+					$group_num = db_count('user',array('gid'=>$_group['gid']));?>
+					<?php echo $group_num;?>,
+				<?php }} ?>
+					],
+          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+        }
+      ]
+    }
+    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    new Chart(donutChartCanvas, {
+      type: 'doughnut',
+      data: donutData,
+      options: donutOptions
+    })
+
+</script>
+
+
+<!--{hook admin_index_js.htm}-->

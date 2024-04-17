@@ -1,0 +1,72 @@
+<?php include _include(ADMIN_PATH.'view/htm/header.inc.htm');?>
+
+<div class="row">
+	<div class="col-12">
+		<div class="card">
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table">
+						<?php foreach($themelist as $dir=>$theme) { ?>
+											
+						<?php
+							$theme['name'] = array_value($theme, 'name');
+							$theme['brief'] = array_value($theme, 'brief');
+							$theme['version_fmt'] = $theme['version'];
+						?>
+	
+						<tr valign="top" dir="<?php echo $dir; ?>">
+							<td width="80" class="text-center">
+								<a href="<?php echo url("theme-read-$dir");?>" target="_blank">
+									<img src="<?php echo $theme['icon_url']; ?>" width="54" height="54" />
+								</a>
+								
+							</td>
+							<td width="300">
+								<a href="<?php echo url("theme-read-$dir");?>"><b><?php echo $theme['name']; ?> </b></a>
+								<span class="small">v<?php echo $theme['version_fmt']; ?> </span>
+								<br /><span class="small text-muted"><?php echo $dir; ?></span>	
+							</td>
+							<td>
+								<p class="grey"><?php echo $theme['brief']; ?></p>
+							</td>
+							<td width="250" align="right">
+							
+								<?php if($theme['setting_url']) { ?>
+								<a role="button" class="btn btn-primary btn-sm setting" href="<?php echo url("theme-setting-$dir"); ?>"><?php echo lang('setting');?></a>
+								<?php } ?>
+								
+								<?php if(!$theme['installed'] && $theme['downloaded']) { ?>
+								<a role="button" class="btn btn-primary btn-sm install" href="<?php echo url("theme-install-$dir"); ?>"><?php echo lang('install');?></a>
+								<?php } ?>
+								
+								<?php if($theme['installed'] && $theme['enable']) { ?>
+								<a role="button" class="btn btn-secondary btn-sm disable" href="<?php echo url("theme-disable-$dir"); ?>"><?php echo lang('disable');?></a>
+								<?php } ?>
+								
+								<?php if($theme['installed'] && !$theme['enable']) { ?>
+								<a role="button" class="btn btn-secondary btn-sm enable" href="<?php echo url("theme-enable-$dir"); ?>"><?php echo lang('enable');?></a>
+								<?php } ?>
+								
+								<?php if($theme['installed']) { ?>
+								<a role="button" class="btn btn-danger btn-sm unstall confirm" data-confirm-text="<?php echo lang('theme_unstall_confirm_tips', array('name'=>$theme['name']));?>" href="<?php echo url("theme-unstall-$dir"); ?>"><?php echo lang('unstall');?></a>
+								<?php } ?>
+								
+							</td>
+						</tr>
+						<?php } ?>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		<?php if($pagination) { ?> <nav><ul class="pagination justify-content-center"><?php echo $pagination; ?></ul></nav> <?php } ?>
+		
+	</div>
+	
+</div>
+
+<?php include _include(ADMIN_PATH.'view/htm/footer.inc.htm');?>
+
+<script>
+$('#nav li.nav-item-theme').addClass('active');
+</script>
