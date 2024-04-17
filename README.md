@@ -67,7 +67,7 @@ location ~* \.(htm)$ {
 
 ## Tải xuống plugin
 
-Kho lưu trữ plugin tạm thời:[Trung tâm plugin](https://github.com/jiix/plugins)
+Kho lưu trữ plugin: [Trung tâm plugin](https://github.com/levanhau03/plugin)
 
 ## Người đóng góp
 Người sáng lập: Mr.Hau
