@@ -28,8 +28,8 @@ Dựa trên phiên bản git chính thức đã biến mất, phiên bản này 
 ![image](https://raw.githubusercontent.com/jiix/xiunobbs/master/screenshot.png)
 
 ## 使用
-使用请下载发布版，集成较少插件。数据库请采用**utf8mb4**（utf8mb4_general_ci），安装完成后，请删除install目录。
-插件和主题，直接上传到**plugin**目录中，后台插件中心开启。
+Vui lòng sử dụng **utf8mb4** (utf8mb4_general_ci) cho cơ sở dữ liệu. Sau khi cài đặt hoàn tất, vui lòng xóa thư mục install.
+Các plugin và chủ đề được tải trực tiếp lên thư mục **plugin** và **theme**
 
 ### Rewrite
 Bật giả tĩnh trong cài đặt nền và thêm quy tắc giả tĩnh tương ứng.
