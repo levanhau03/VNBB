@@ -20,7 +20,8 @@ function get_env(&$env, &$write) {
 		'../log/',
 		'../tmp/',
 		'../upload/',
-		'../plugin/'
+		'../plugin/',
+		'../theme/'
 	);
 
 	$write = array();
