@@ -1,15 +1,15 @@
-# 介绍
-Xiuno BBS 4.0 是一款轻论坛产品。
-本版本在消逝的官方git版本基础上，修复了php7.4和php8.0的兼容问题；采用utf8mb4，支持emoji；jQuery更新到 3.5.1；bootstrap更新到4.5.0。移除部分插件，更新默认主题。修复了若干小bug。Xiuno BBS 4.0 采用 MIT 协议发布，您可以自由修改、派生版本、商用而不用担心任何法律风险。
+# Giới thiệu
+VNBB 1.0 là một sản phẩm forum nhẹ.
+Dựa trên phiên bản git chính thức đã biến mất, phiên bản này khắc phục các vấn đề tương thích giữa php7.4 và php8.0; sử dụng utf8mb4 để hỗ trợ biểu tượng cảm xúc; jQuery được cập nhật lên 3.5.1 bootstrap được cập nhật lên 4.5.0. Xóa một số plugin và cập nhật chủ đề mặc định. Đã sửa một số lỗi nhỏ.
 
-## 我做了些什么
+## Tôi đã làm gì
 
-### 修复
-- 修复php7.4兼容问题
-- 修复php8.0兼容问题
-- 修复无法卸载插件bug
-- 修复后台插件页面无法打开
-### 更新
+### Sửa chữa
+- Sửa lỗi tương thích php7.4
+- Khắc phục sự cố tương thích php8.2
+- Sửa lỗi không thể gỡ cài đặt plugin
+- Đã khắc phục sự cố không thể mở được trang plugin
+### Thay mới
 - 💄默认主题更新
 - 💥采用**utf8mb4**，支持emoji
 - jQuery更新到 3.5.1
