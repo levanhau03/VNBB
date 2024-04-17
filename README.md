@@ -27,7 +27,7 @@ Dựa trên phiên bản git chính thức đã biến mất, phiên bản này 
 ## Screenshot
 ![image](https://raw.githubusercontent.com/levanhau03/VNBB/main/screenshot.png)
 
-## 使用
+## Sử dụng
 Vui lòng sử dụng **utf8mb4** (utf8mb4_general_ci) cho cơ sở dữ liệu. Sau khi cài đặt hoàn tất, vui lòng xóa thư mục install.
 Các plugin và chủ đề được tải trực tiếp lên thư mục **plugin** và **theme**
 
