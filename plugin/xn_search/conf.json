@@ -1,0 +1,13 @@
+{
+    "name": "Search",
+    "brief": "MySQL FULLTEXT được sử dụng để thực hiện tìm kiếm toàn văn bản.",
+    "version": "3.4",
+    "bbs_version": "1.0",
+    "installed": 1,
+    "enable": 1,
+    "hooks_rank": {
+        "index_site_brief_after.htm": 10
+    },
+    "overwrites_rank": [],
+    "dependencies": []
+}
