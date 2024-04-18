@@ -1,0 +1,21 @@
+<div class="card card-newuser">
+    <div class="card-header text-grey">Thành viên mới nhất</div>
+    <div class="card-body small">
+        <div class="row">
+          	<?php
+				$latest_users = cache_get('latest_users');
+				if(empty($latest_users)){
+					$latest_users = user_find(array(),array('create_date'=>-1),$page = 1 , $pagesize = 12);
+					cache_set('latest_users',$latest_users,30);
+				}
+			?>
+            <?php foreach($latest_users as $latest_user){ ?>
+            <div class="col-3 mb-1 text-center" style="overflow: hidden;text-overflow:ellipsis;white-space: nowrap;">
+                <a class="small text-muted text-nowrap" href="<?php echo url("user-$latest_user[uid]");?>" data-toggle="tooltip" title="<?php echo $latest_user['username'];?>" data-original-title="<?php echo $latest_user['username'];?>">
+                <img src="<?php echo $latest_user['avatar_url']; ?>" alt="<?php echo $latest_user['username'];?>" width="28" height="28" class="img-circle"><br><?php echo $latest_user['username'];?>
+                </a>
+            </div>
+            <?php } ?>
+        </div>
+    </div>
+</div>
