@@ -174,7 +174,7 @@ if($action == 'create') {
 		
 		// hook post_update_post_end.php
 		
-		message(0, lang('update_successfully'));
+		message(0, 'Hoàn thành');
 		//message(0, array('pid'=>$pid, 'subject'=>$subject, 'message'=>$message));
 	}
 	

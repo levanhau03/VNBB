@@ -67,11 +67,11 @@ return array(
 	'minute_ago'=>' phút trước',
 	'second_ago'=>' giây trước',
 	
-	'update_failed'=>'Cập nhật không thành công',
+	'update_failed'=>'Cập nhật thất bại',
 	'delete_failed'=>'Không thể xóa',
 	'create_failed'=>'Tạo không thành công',
 	
-	'update_successfully'=>'Hoàn thành cập nhật',
+	'update_successfully'=>'Cập nhật thành công',
 	'delete_successfully'=>'Đã xóa thành công',
 	'create_successfully'=>'Đã tạo thành công',
 	'save_successfully'=>'Đã lưu thành công',
