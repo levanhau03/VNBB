@@ -1,0 +1,10 @@
+{
+    "name": "Post hidden",
+    "brief": "Sử dụng [login] text [/login] đăng nhập để hiển thị. Sử dụng [reply] text [/reply] để hiển thị câu trả lời",
+    "version": "1.0",
+    "bbs_version": "4.0",
+    "installed": 0,
+    "enable": 0,
+    "hooks_rank": [],
+    "dependencies": []
+}
