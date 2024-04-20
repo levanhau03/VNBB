@@ -1,0 +1,224 @@
+<!--{hook header_nav_start.htm}-->
+<header id="header">
+
+	<!-- PC Navigation start -->
+	<div class="navbar navbar-dark bg-dark navbar-expand-lg hidden-sm hidden-md">
+		<div class="container" id="pc_nav">
+
+			<!-- PC: logo -->
+			<!--{hook header_nav_logo_before.htm}-->
+			<a class="navbar-brand text-truncate" href="<?php echo $header['mobile_link'];?>">
+				<img src="<?php echo $conf['logo_pc_url'];?>" class="logo-2">
+			</a>
+			<!--{hook header_nav_logo_after.htm}-->
+
+			<!-- PC: Left: Main navigation menu -->
+			<ul class="navbar-nav mr-auto">
+
+				<!--{hook header_nav_forum_start.htm}-->
+				<li class="nav-item home" data-active="index"><a class="nav-link" href="."><i class="icon-home"></i>
+						<?php echo lang('index_page');?></a></li>
+				<!--{hook header_nav_forum_end.htm}-->
+
+			</ul>
+
+			<!-- PC: Right: User -->
+			<ul class="navbar-nav">
+				<!--{hook header_nav_user_start.htm}-->
+
+				<?php if(empty($uid)) { ?>
+				<!--{hook header_nav_user_login_before.htm}-->
+				<li class="nav-item"><a class="nav-link" href="<?php echo url('user-login');?>">
+					<i class="fa fa-user-plus"></i> <?php echo lang('login');?>/<?php echo lang('register');?></a></li>
+				<!--{hook header_nav_user_login_after.htm}-->
+				<?php } else { ?>
+				<div class="dropdown">
+					<li class="nav-item username"><a class="nav-link dropdown-toggle" id="profileDropdown"
+							data-toggle="dropdown" href="#"><img class="avatar-1"
+								src="<?php echo $user['avatar_url'];?>"> <?php echo $user['username'];?>
+							<!--{hook header_nav_user_name_after.htm}-->
+						</a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown"
+							style="margin-top: -8px;">
+							<a class="dropdown-item" href="<?php echo url('my');?>"><i class="fa fa-user"></i>
+								<?php echo lang('my_profile');?></a>
+							<!-- Administrator -->
+							<?php if($gid == 1) { ?>
+							<a class="dropdown-item" href="admin/" target="_blank"><i class="fa fa-cog"></i>
+								<?php echo lang('admin_page');?></a>
+							<?php } ?>
+							<!--{hook header_nav_admin_page_after.htm}-->
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item text-danger" href="<?php echo url('user-logout');?>"><i
+									class="fa fa-sign-out-alt"></i> <?php echo lang('logout');?></a>
+						</div>
+					</li>
+				</div>
+				<?php } ?>
+
+				<!--{hook header_nav_2_user_pc_end.htm}-->
+			</ul>
+
+		</div>
+	</div>
+
+	<!-- The section is displayed at the second level -->
+	<?php if(in_array($route, array('bbs', 'forum', 'thread', 'post','index'))) { ?>
+	<div class="hidden-sm hidden-md bg-white" id="nav_pc_2">
+		<div class="container d-flex justify-content-between">
+			<ul class="nav">
+				<?php foreach($forumlist_show as $_forum) { ?>
+				<!--{hook header_nav_forumlist_loop_start.htm}-->
+				<li class="nav-item" fid="<?php echo $_forum['fid'];?>" data-active="fid-<?php echo $_forum['fid'];?>">
+					<a class="nav-link" href="<?php echo url("forum-$_forum[fid]");?>"><?php echo $_forum['name'];?></a>
+				</li>
+				<!--{hook header_nav_forumlist_loop_end.htm}-->
+				<?php } ?>
+			</ul>
+			<div>
+
+
+				<!--{hook header_nav_thread_create_start.htm}-->
+				<?php if($uid) { ?>
+				<a role="button" class="btn btn-primary text-white" href="<?php echo url('thread-create-'.$fid);?>"><i
+						class="far fa-edit"></i> <?php echo lang('thread_create_new');?></a>
+					<?php }else {?>
+						<a role="button" class="btn btn-primary text-white" href="<?php echo url('user-login');?>"><i class="fa fa-user-plus"></i> <?php echo lang('login');?>/<?php echo lang('register');?></a>
+						<?php }?>
+				<!--{hook header_nav_thread_create_end.htm}-->
+			</div>
+		</div>
+	</div>
+	<?php } ?>
+	<!-- PC Navigation end -->
+
+
+
+
+	<!-- Mobile Navigation start -->
+	<div class="navbar navbar-dark bg-dark navbar-expand-lg  hidden-lg">
+		<div class="container" id="mobile_nav">
+
+			<!-- Left: menu button -->
+			<!--{hook header_nav_2_toggler_before.htm}-->
+			<span class="fa fa-bars MobilemenuBtn MobilemenuBtn-text" data-toggle="collapse"
+				data-target="#mobile_nav_dropdown" aria-controls="navbar_collapse" aria-expanded="false"
+				aria-label="<?php echo lang('toggler_menu');?>"></span>
+			<!--{hook header_nav_2_toggler_after.htm}-->
+
+			<!-- The middle LOGO and website title -->
+			<!--{hook header_nav_2_logo_before.htm}-->
+			<a class="navbar-brand text-truncate" href="<?php echo $header['mobile_link'];?>">
+				<?php if(in_array($route, array('index'))) { ?>
+				<img src="<?php echo $conf['logo_mobile_url'];?>" class="logo-2">
+				<?php } ?>
+				<?php if($header['mobile_title']) { ?>
+				<span><?php echo $header['mobile_title'];?></span>
+				<?php } ?>
+			</a>
+			<!--{hook header_nav_2_logo_after.htm}-->
+
+			<!-- User login and post icons on the right -->
+			<!--{hook header_nav_2_user_icon_before.htm}-->
+			<?php if(empty($uid)) { ?>
+			<a class="navbar-brand nav-dark MobilemenuBtn-text" href="<?php echo url('user-login');?>"
+				aria-label="<?php echo lang('login');?>"> <i class="far fa-user-circle"></i></a>
+			<?php } else { ?>
+			<a class="navbar-brand nav-dark MobilemenuBtn-text" href="<?php echo url("thread-create-$fid");?>"
+				aria-label="<?php echo lang('thread_create');?>"><i class="far fa-edit"></i></a>
+			<?php } ?>
+			<!--{hook header_nav_2_user_icon_after.htm}-->
+
+
+			<!-- Left: Menu button, click the pop-up drop-down menu -->
+			<div class="collapse navbar-collapse" id="mobile_nav_dropdown">
+				<div class="container" style="display: inherit;">
+					<!-- Mobile: Left: Sections -->
+					<!--{hook header_nav_2_channel_before.htm}-->
+					<h5 class="text-center"><?php echo lang('channel');?></h5>
+					<nav class="nav navbar-nav channel ">
+						<!--{hook header_nav_forum_start.htm}-->
+						<li class="nav-item home" data-active="index">
+							<a class="nav-link" href="./" data-active="index"><i class="icon-home"></i>
+								<?php echo lang('index_page');?></a>
+						</li>
+						<!--{hook header_nav_forum_end.htm}-->
+
+						<!--{hook header_nav_2_channel_bbs_before.htm}-->
+
+						<!--{hook header_nav_2_channel_bbs_after.htm}-->
+					</nav>
+					<!--{hook header_nav_2_channel_after.htm}-->
+
+					<!--{hook header_nav_2_forumlist_before.htm}-->
+					<h5 class="text-center"><?php echo lang('bbs');?></h5>
+					<nav class="nav navbar-nav forumlist mt-3">
+						<!--{hook header_nav_2_forumlist_loop_before.htm}-->
+						<?php foreach($forumlist_show as $_forum) { ?>
+						<!--{hook header_nav_2_forumlist_loop_start.htm}-->
+						<li class="nav-item col-6 col-md-4 p-1 media" fid="<?php echo $_forum['fid'];?>"
+							data-active="fid-<?php echo $_forum['fid'];?>">
+							<a class="nav-link rounded media w-100 forumlist-bg mr-0"
+								href="<?php echo url("forum-$_forum[fid]");?>">
+								<img class="avatar-3 mr-3 mt-1 rounded" src="<?php echo $_forum['icon_url'];?>">
+								<div class="media-body">
+									<span class="font-weight-bold"><?php echo $_forum['name'];?></span>
+									<span class="d-block text-muted mt-2 w-100 text-truncate"><span><i
+												class="far fa-comment-alt"></i> :
+											<b><?php echo $_forum['threads'];?></b></span>
+										<span><i class="far fa-comments"></i> :
+											<b><?php echo $_forum['todayposts'];?></b></span>
+									</span>
+								</div>
+							</a>
+						</li>
+						<!--{hook header_nav_2_forumlist_loop_end.htm}-->
+						<?php } ?>
+						<!--{hook header_nav_2_forumlist_loop_after.htm}-->
+					</nav>
+					<!--{hook header_nav_2_forumlist_after.htm}-->
+
+					<!--{hook header_nav_2_my_before.htm}-->
+					<h5 class="text-center"><?php echo lang('my');?></h5>
+					<nav class="nav navbar-nav my mt-3">
+						<!--{hook header_nav_user_start.htm}-->
+						<!-- administrator -->
+						<?php if($gid == 1) { ?>
+						<a class="nav-link" href="admin/"><i class="fa fa-cog"></i>
+							<?php echo lang('admin_page');?></a>
+						<?php } ?>
+						<!--{hook header_nav_user_end.htm}-->
+					</nav>
+					<!--{hook header_nav_2_my_after.htm}-->
+					<!--{hook header_nav_2_user_info_before.htm}-->
+					<nav class="nav navbar-nav user row">
+						<!--{hook header_nav_2_user_info_start.htm}-->
+						<?php if($uid) { ?>
+						<div class="col pr-1 mt-3"><a class="btn btn-light btn-block"
+								href="<?php echo url('my');?>"><img class="avatar-1"
+									src="<?php echo $user['avatar_url'];?>"> <?php echo $user['username'];?></a></div>
+						<!--{hook header_nav_2_user_info_name_after.htm}-->
+						<div class="col pl-1 mt-3"><a class="btn btn-danger btn-block"
+								href="<?php echo url('user-logout');?>"><i class="fa fa-sign-out-alt"></i>
+								<?php echo lang('logout');?></a></div>
+						<?php } else { ?>
+						<div class="col pr-1 mt-3"><a class="btn btn-light btn-block"
+								href="<?php echo url('user-login');?>"><i class="fa fa-sign-in-alt"></i>
+								<?php echo lang('login');?></a></div>
+						<!--{hook header_nav_2_user_info_login_after.htm}-->
+						<div class="col pl-1 mt-3"><a class="btn btn-outline-light btn-block"
+								href="<?php echo url('user-create');?>"><i class="fa fa-user-plus"></i>
+								<?php echo lang('register');?></a></div>
+						<?php } ?>
+						<!--{hook header_nav_2_user_info_end.htm}-->
+					</nav>
+					<!--{hook header_nav_2_user_info_after.htm}-->
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Mobile Navigation end -->
+</header>
+
+<!--{hook header_nav_end.htm}-->

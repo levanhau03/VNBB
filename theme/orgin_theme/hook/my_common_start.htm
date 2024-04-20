@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-lg-12">
+        <div class="card user_header">
+            <div class="rounded-top" id="bgcolor">
+                <canvas id="canvas"></canvas>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="user_page_header col-lg-2">
+                        <!--{hook my_common_avatar_before.htm}-->
+                        <img class="logo-5 avatar-5 user_page_avatar rounded" src="<?php echo $user['avatar_url'];?>"></div>
+                    <div class="col-lg-6 col-md-12 pl-lg-0">
+                        <div class="name-info">
+                            <div class="mb-2">
+                                <span class="h4 font-weight-bold"><?php echo $user['username'];?></span>
+                                <!--{hook my_common_username_after.htm}-->
+                            </div>
+                            <div>
+                                <span class="badge badge-primary mr-1">UID:<?php echo $user['uid'];?></span><span class="badge badge-info"><?php echo $user['groupname'];?></span>
+                                <!--{hook my_common_groupname_after.htm}-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4  user_profile_right">
+                        <div class="d-flex justify-content-end">
+                            <a class="btn btn-outline-primary" href="<?php echo url("user-$user[uid]");?>" role="button"><?php echo lang('my_user');?></a>
+                            <!--{hook my_profile_header_right.htm}-->
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!--{hook my_common_header_after.htm}-->
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="<?php echo 'theme/orgin_theme/view/js/background.min.js';?>"></script>

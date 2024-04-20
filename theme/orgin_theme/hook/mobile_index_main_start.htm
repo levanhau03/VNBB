@@ -1,0 +1,10 @@
+<div class=" d-flex justify-content-between breadcrumb hidden-lg">
+  <ul class="list-inline mb-0 ">
+    <li class="text-small list-inline-item border-right pr-2" data-toggle="tooltip" data-placement="top" title="<?php echo lang('mb_threads');?>"><i class="far fa-comment-alt text-muted"></i> <span class="text-muted "><?php echo lang('mb_threads');?></span> <b><?php echo $runtime['threads'];?></b></li>
+	<li class="text-small list-inline-item border-right pr-2" data-toggle="tooltip" data-placement="top" title="<?php echo lang('mb_posts');?>"><i class="far fa-comments   text-muted"></i> <span class="text-muted "><?php echo lang('mb_posts');?></span> <b><?php echo $runtime['posts'];?></b></li>
+	<li class="text-small list-inline-item" data-toggle="tooltip" data-placement="top" title="<?php echo lang('mb_users');?>"><i class="far fa-user-circle  text-muted"></i> <span class="text-muted"><?php echo lang('mb_users');?></span> <b><?php echo $runtime['users'];?></b></li>
+	</ul>
+	<span tabindex="0"  data-toggle="popover" data-trigger="focus" data-html="true"  data-placement="bottom" title="<?php echo $conf['sitename'];?>" data-content="<?php echo $conf['sitebrief'];?>"></i></span>
+</div>
+
+

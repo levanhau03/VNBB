@@ -1,0 +1,11 @@
+{
+    "name": "Orgin theme <span class='badge badge-pill badge-primary'>phiên bản</span>",
+    "brief": "Để biết thêm thông tin, truy cập <a href='https://www.noteweb.top/' class='badge badge-primary'>NOTEWEB</a><br/>Cập nhật 1.2.0:<br/>1. Tối ưu hóa bố cục một phần<br/>2. Tối ưu hóa chi tiết khác<br/>",
+    "version": "1.2.0",
+    "bbs_version": "4.0.3",
+    "installed": 0,
+    "enable": 0,
+    "hooks_rank": [],
+    "overwrites_rank": [],
+    "dependencies": []
+}

@@ -1,0 +1,14 @@
+<div class="card hidden-lg">
+    <div id="my_mobile_nav2" class="text-center">
+        <div class="list-group list-group-flush list-group-horizontal">
+            <!--{hook user_common_user_before.htm}-->
+            <a href="<?php echo url("user-$_uid");?>" class="list-group-item list-group-item-action" data-active="menu-user">Thông tin</a>
+            <!--{hook user_common_user_after.htm}-->
+
+            <!--{hook user_common_thread_before.htm}-->
+            <a href="<?php echo url("user-thread-$_uid");?>" class="list-group-item list-group-item-action" data-active="menu-user-thread">Bài viết</a>
+            <!--{hook user_common_thread_after.htm}-->
+
+        </div>
+    </div>
+</div>

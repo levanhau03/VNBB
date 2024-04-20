@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card user_header">
+            <div class="rounded-top" id="bgcolor">
+                <canvas id="canvas"></canvas>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="user_page_header col-lg-2">
+                        <img class="avatar-5 user_page_avatar rounded" src="<?php echo $_user['avatar_url'];?>">
+                    </div>
+                    <div class="col-lg-6 col-md-12 pl-lg-0">
+                        <div class="name-info">
+                            <div class="mb-2">
+                                <span class=" h4 font-weight-bold mt-2"><?php echo $_user['username'];?></span>
+                                <!--{hook user_profile_username_after.htm}-->
+                            </div>
+                            <div>
+                                <span class="badge badge-primary mr-1">UID:<?php echo $_user['uid'];?></span><span class="badge badge-info"><?php echo $_user['groupname'];?></span>
+                                <!--{hook user_profile_groupname_after.htm}-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4  user_profile_right">
+                        <div class="d-flex justify-content-end">
+                            <?php if ($user && $uid == $_user['uid']) { ?>
+                            <a class="btn btn-outline-primary" href="<?php echo url('my');?>" role="button"><?php echo lang('user_my');?></a>
+                            <?php } ?>
+                            <!--{hook user_profile_header_right.htm}-->
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <!--{hook user_profile_header_after.htm}-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="<?php echo 'theme/orgin_theme/view/js/background.min.js';?>"></script>
