@@ -2,9 +2,9 @@
     "name": "Latest members",
     "brief": "Hiển thị người dùng đã đăng ký mới nhất.",
     "version": "1.0",
-    "bbs_version": "4.0",
-    "installed": 1,
-    "enable": 1,
+    "bbs_version": "1.0",
+    "installed": 0,
+    "enable": 0,
     "hooks_rank": [],
     "overwrites_rank": [],
     "dependencies": []
